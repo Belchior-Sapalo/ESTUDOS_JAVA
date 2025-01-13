@@ -1,0 +1,5 @@
+100 Bob Blue 24,48
+200 Steve Green -345,64
+300 Pam White 0,00
+400 Sam Red -42,16
+500 sue Yellow 244,20
