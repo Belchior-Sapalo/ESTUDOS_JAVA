@@ -21,7 +21,5 @@ public class DatasTeste {
             System.out.println(df.format(c.getTime()));
         }
 
-
-
     }
 }

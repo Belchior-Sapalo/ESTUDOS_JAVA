@@ -30,6 +30,19 @@ public class Main {
         UserController userController = new UserController(userService, bookService);
         LoanController loanController = new LoanController(loanService);
 
+        /*
+         * Adicionar livro
+         * Ver lista de livros
+         * Adicionar usuario
+         * Ver lista de usuario
+         * Emprestar livro
+         * Devolver livro
+         * Relatorio de emprestimo
+         * Sair
+         * 
+         * (Os dados devem ser guardados em ficheiros, Book.ttx, User.txt, Boorow_Book.txt)
+         */
+
         while (true){
             System.out.println("\n*** Welcome to Library Manager App ***\n");
             System.out.println("1. Authenticate User");
