@@ -1,4 +1,4 @@
-package com.belchiorsapalo.crud.controller;
+package com.belchiorsapalo.crud.controller.product;
 
 import java.util.List;
 import java.util.UUID;
@@ -16,9 +16,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.*;
 
-import com.belchiorsapalo.crud.domain.Product;
-import com.belchiorsapalo.crud.domain.ProductDTO;
-import com.belchiorsapalo.crud.services.ProductService;
+import com.belchiorsapalo.crud.domain.product.Product;
+import com.belchiorsapalo.crud.domain.product.ProductDTO;
+import com.belchiorsapalo.crud.services.product.ProductService;
 
 @RestController
 @RequestMapping("/products")

@@ -1,15 +1,15 @@
-package com.belchiorsapalo.crud.services;
+package com.belchiorsapalo.crud.services.product;
 
 import java.util.List;
 import java.util.UUID;
 
 import org.springframework.stereotype.Service;
 
-import com.belchiorsapalo.crud.domain.Product;
-import com.belchiorsapalo.crud.domain.ProductDTO;
-import com.belchiorsapalo.crud.repository.ProductRepo;
+import com.belchiorsapalo.crud.domain.product.Product;
+import com.belchiorsapalo.crud.domain.product.ProductDTO;
 import com.belchiorsapalo.crud.exception.EntityNotFoundException;
 import com.belchiorsapalo.crud.exception.InvalidDataException;
+import com.belchiorsapalo.crud.repository.product.ProductRepo;
 
 @Service
 public class ProductService {
@@ -24,6 +24,7 @@ public class ProductService {
         validateProductDTO(pDto);
         return pRepo.save(new Product(pDto));
     }
+
 
     public Product getProduct(UUID id){
         if (!pRepo.existsById(id))
@@ -52,14 +53,14 @@ public class ProductService {
         return pRepo.save(product);
     }
 
+    private void validateProductDTO(ProductDTO pDto){
+        if (pDto.price() < 0)
+            throw new InvalidDataException("O preço deve maior ou igual a zero");
+    }
+
     public void delete(UUID id){
         if (!pRepo.existsById(id))
             throw new EntityNotFoundException("O produto requerido não foi encontrado");
         pRepo.deleteById(id);
-    }
-
-    private void validateProductDTO(ProductDTO pDto){
-        if (pDto.price() < 0)
-            throw new InvalidDataException("O preço deve maior ou igual a zero");
     }
 }

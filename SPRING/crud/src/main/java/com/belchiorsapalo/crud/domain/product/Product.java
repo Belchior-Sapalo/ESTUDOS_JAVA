@@ -1,4 +1,4 @@
-package com.belchiorsapalo.crud.domain;
+package com.belchiorsapalo.crud.domain.product;
 
 import java.util.UUID;
 
