@@ -25,25 +25,27 @@ public class UserServiceImpl implements UserService{
         this.repository = repository;
         this.mapper = mapper;
     }
+
     @Override
     public User findById(Integer id) {
        return repository.findById(id).orElseThrow(() -> new ObjectNotFoundException("Usuário não encontrado"));
     }
+
     @Override
     public List<User> findAll() {
        return repository.findAll();
     }
+
     @Override
     public User create(UserDTO dto) {
         findByEmail(dto);
         return repository.save(mapper.map(dto, User.class));
     }
 
-    
     @Override
     public User update(UserDTO dto) {
         findByEmail(dto);
-       return repository.save(mapper.map(dto, User.class));
+        return repository.save(mapper.map(dto, User.class));
     }
 
     private void findByEmail(UserDTO dto){
@@ -51,9 +53,10 @@ public class UserServiceImpl implements UserService{
         if (user.isPresent() && !user.get().getId().equals(dto.getId()))
             throw new DataIntegratyViolationException("Este email já existe, tente outro");
     }
+
     @Override
     public void delete(Integer id) {
         findById(id);
-       repository.deleteById(id);
+        repository.deleteById(id);
     }
 }
